@@ -2,13 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+<div class="wrapper">
+    <header>
+        <i class="bx bx-left-arrow-alt"></i>Weather App
+    </header>
+    <section class = "input-part">
+        <p class="info-txt"></p>
+        <div class = "content">
+            <form action="/results" method="post">
+                <div class="row icon">
+                    <i class="bx bx-search"></i>
+                    <input type="text" name="city" placeholder="Search city" required>
+                </div>
+                <button type = "submit">Get Weather</button>
+            </form>
+        </div>
+    </section>
 
-<h1> {{city}}</h1>
-<h2> {{temp}} </h2>
-<p>{{resp}}</p>
+
+</div>
+<div class="weather-part">
+        <img src="https://openweathermap.org/img/wn/{{ resp['weather'][0]['icon'] }}@2x.png" alt="gambar">
+        <div class="temp">
+            <span></span>
+            <span>{{temp}}</span>
+        </div>
+
+    </div>
+</div>
 
 </body>
 </html>
