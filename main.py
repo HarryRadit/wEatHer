@@ -30,8 +30,16 @@ def results():
     if resp:
         if len(resp) <= 2:
             error = resp['message']
-
-    return render_template('index.html', temp=temp, resp=resp)
+        else:
+            temp = resp["main"]["temp"]
+            city= resp["name"]
+            country = resp["sys"]["country"]
+            weather = resp["weather"][0]["description"]
+            icon = resp["weather"][0]["icon"]
+            icon_url = f"https://openweathermap.org/img/wn/@2x.png".format(icon)
+            humidity = resp["main"]["humidity"]
+            feels_like = resp["main"]["feels_like"]
+    return render_template('index.html', temp=temp, resp=resp, city=city, error=error, country=country, weather=weather, icon_url=icon_url, humidity=humidity, feels_like=feels_like)
 
 if __name__ == '__main__':
     app.run(debug=True)

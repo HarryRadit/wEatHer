@@ -20,6 +20,7 @@
                     <input type="text" name="city" placeholder="Search city" required>
                 </div>
                 <button type = "submit">Get Weather</button>
+                {{error}}
             </form>
         </div>
     </section>
@@ -32,7 +33,32 @@
             <span></span>
             <span>{{temp}}</span>
         </div>
+    <div class = "weather">{{weather}}</div>
+    <div class = "location">
+        <div class = "city">{{city}}, {{country}}</div>
+    </div>
+</div>
 
+<div class="bottom-details">
+    <div class="column feels_like">
+        <i class="bx bxs-thermometer"></i>
+        <div class="details">
+            <div class="temp">
+                <span></span>
+                <span>{{feels_like}}</span>
+            </div>
+            <p>Feels like</p>
+        </div>
+    </div>
+    <div class="column humidity">
+        <i class="bx bxs-droplet"></i>
+        <div class="details">
+            <div class="temp">
+                <span></span>
+                <span>{{humidity}}</span>
+            </div>
+            <p>Humidity</p>
+        </div>
     </div>
 </div>
 
